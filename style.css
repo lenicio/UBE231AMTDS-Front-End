@@ -1,0 +1,12 @@
+#mensagem {
+  color: red;
+}
+
+body {
+  font-size: 24px;
+}
+
+div {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}

@@ -4,14 +4,30 @@
 <head>
   <meta charset="UTF-8">
   <title>Aula JavaScript</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-  <h1>Formulário de Cadastro</h1>
+  <h1>Formulário de Cadastro de Alistamento</h1>
   <form>
-    <label for="idade">Informe sua idade</label>
-    <input type="number" name="idade" id="idade">
+    <div>
+      <label for="idade">Informe sua idade</label>
+      <input type="number" name="idade" id="idade" required>
+    </div>
+
+    <div>
+      <label>Gênero:</label>
+
+      <input type="radio" id="genM" name="genero" value="m">
+      <label for="genM">Masculino</label>
+
+      <input type="radio" id="genF" name="genero" value="f">
+      <label for="genF">Feminino</label>
+
+      <input type="radio" id="genO" name="genero" value="o">
+      <label for="genO">Outros</label>
+    </div>
 
     <button onclick="exibeDataNascimento()">Enviar</button>
   </form>
@@ -25,7 +41,22 @@
       // Desabilitar o evento padrão de enviar formulário ao clicar no botão
       event.preventDefault();
 
-      alert("O botão foi clicado!")
+      let idade = parseInt(document.getElementById("idade").value);
+      let anoNascimento = 2023 - idade;
+      let genero = document.querySelector('input[name="genero"]:checked').value;
+
+      if (genero == "m") {
+        alert("Genero Masculino Selecionado")
+      } else if (genero == "f") {
+        alert("Genero Feminino Selecionado")
+      } else if (genero == "o") {
+        alert("Genero Outros Selecionado")
+      }
+
+      let conteudo = document.getElementById("mensagem").innerText;
+
+
+      document.getElementById("mensagem").innerText = conteudo + "* Você nasceu em " + anoNascimento;
     }
 
   </script>
