@@ -12,8 +12,8 @@
   <h1>Formulário de Cadastro de Alistamento</h1>
   <form>
     <div>
-      <label for="idade">Informe sua idade</label>
-      <input type="number" name="idade" id="idade" required>
+      <label for="anoNascimento">Informe seu ano de nascimento</label>
+      <input type="number" name="anoNascimento" id="anoNascimento" required>
     </div>
 
     <div>
@@ -29,7 +29,7 @@
       <label for="genO">Outros</label>
     </div>
 
-    <button onclick="exibeDataNascimento()">Enviar</button>
+    <button onclick="processaAlistamento()">Enviar</button>
   </form>
 
   <p id="mensagem"></p>
@@ -37,27 +37,26 @@
 
   <script>
 
-    function exibeDataNascimento() {
-      // Desabilitar o evento padrão de enviar formulário ao clicar no botão
-      event.preventDefault();
+    function processaAlistamento() {
+      event.preventDefault()
 
-      let idade = parseInt(document.getElementById("idade").value);
-      let anoNascimento = 2023 - idade;
-      let genero = document.querySelector('input[name="genero"]:checked').value;
+      let mensagem = "";
+      let anoNascimento = document.getElementById('anoNascimento').value;
+      anoNascimento = parseInt(anoNascimento);
+      let genero = document.querySelector("input[name='genero']:checked").value;
 
-      if (genero == "m") {
-        alert("Genero Masculino Selecionado")
-      } else if (genero == "f") {
-        alert("Genero Feminino Selecionado")
-      } else if (genero == "o") {
-        alert("Genero Outros Selecionado")
+      if (anoNascimento == 2005 && genero == "m") {
+        mensagem = "Alistamento Obrigatório!"
+      }
+      else if (anoNascimento < 2005 && genero == "m") {
+        mensagem = "Reserva Ativa do Brasil!"
+      }
+      else if (anoNascimento > 2005 || genero == "f") {
+        mensagem = "Alistamento Não Obrigatório!"
       }
 
-      let conteudo = document.getElementById("mensagem").innerText;
-
-
-      document.getElementById("mensagem").innerText = conteudo + "* Você nasceu em " + anoNascimento;
     }
+
 
   </script>
 
