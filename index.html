@@ -1,10 +1,35 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <meta charset="UTF-8">
   <title>Aula JavaScript</title>
 </head>
+
 <body>
-  
+
+  <h1>Formulário de Cadastro</h1>
+  <form>
+    <label for="idade">Informe sua idade</label>
+    <input type="number" name="idade" id="idade">
+
+    <button onclick="exibeDataNascimento()">Enviar</button>
+  </form>
+
+  <p id="mensagem"></p>
+
+
+  <script>
+
+    function exibeDataNascimento() {
+      // Desabilitar o evento padrão de enviar formulário ao clicar no botão
+      event.preventDefault();
+
+      alert("O botão foi clicado!")
+    }
+
+  </script>
+
 </body>
+
 </html>
