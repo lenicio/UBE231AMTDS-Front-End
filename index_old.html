@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+
+  <style>
+    body #mensagem {
+      color: red;
+    }
+
+    button {
+      margin-top: 10px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <form>
+    <label for="nome">Nome:</label>
+    <input type="text" name="idade" id="idade" oninput="botaoBlur()">
+    <br>
+    <label for="">Sexo</label>
+    <input type=" radio" name="sexo" id="sexo-m" value="m">
+    <label for="sexo-m">Masculino</label>
+    <input type="radio" name="sexo" id="sexo-f" value="f">
+    <label for="sexo-f">Feminino</label>
+    <br>
+    <button type="submit" id="btn-enviar" name="btn-enviar" onclick="botaoClicado()">Enviar</button>
+    <button onclick="botaoClicado()"></button>
+  </form>
+
+  <p id="mensagem"></p>
+
+  <script>
+
+    function botaoBlur() {
+      let idade = document.querySelector('input[name="idade"]');
+      idade.style.backgroundColor = 'red';
+      console.log(idade);
+      alert('Botão saiu de foco')
+    }
+
+    function botaoClicado() {
+      alert('Botão clicado')
+      let idade = document.getElementById('idade').value;
+      console.log(idade);
+      alert(idade);
+    }
+
+    document.querySelector('button[name="btn-enviar"]').addEventListener('mouseover', function (event) {
+      event.target.style.backgroundColor = 'red';
+    })
+
+    document.getElementById('btn-enviar').addEventListener('mouseout', function (event) {
+      event.target.style.backgroundColor = 'white';
+    })
+
+    // document.getElementById('btn-enviar').addEventListener('click', function (event) {
+    //   message = ''
+    //   event.preventDefault();
+    //   let idade = document.querySelector('input[name="idade"]').value;
+    //   let genero = document.querySelector('input[name="sexo"]:checked');
+    //   if (genero) {
+    //     genero = genero.value;
+    //   } else {
+    //     message += 'Selecione um gênero\n';
+    //   }
+
+
+    //   if (isNaN(idade)) {
+    //     document.getElementById('mensagem').innerText = 'Digite um número válido';
+    //     return;
+    //   }
+
+    //   let anoNascimento = 2023 - idade;
+
+    //   message += `Você nasceu em ${anoNascimento} e é ${genero}`;
+
+    //   document.getElementById('mensagem').innerText = message;
+    // })
+
+
+  </script>
+
+</body>
+
+</html>
